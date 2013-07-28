@@ -15,6 +15,23 @@
 #
 def triangle(a, b, c)
   # WRITE THIS CODE
+  s = (a + b + c) / 2.0
+  valid_traingle = (s - a) * (s - b) * (s - c) # To check if it's a valid triangle
+
+  if a <= 0 || b <= 0 || c <= 0 || valid_traingle <= 0
+    raise TriangleError
+  end
+
+  equilateral_conditions = (a == b && b == c)
+  isosceles_conditions = (a == b || b == c || a == c)
+
+  if equilateral_conditions
+    return :equilateral
+  elsif isosceles_conditions
+    return :isosceles
+  else
+    return :scalene
+  end
 end
 
 # Error class used in part 2.  No need to change this code.

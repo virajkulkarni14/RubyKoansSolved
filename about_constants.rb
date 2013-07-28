@@ -68,6 +68,17 @@ class AboutConstants < Neo::Koan
 
   # QUESTION: Which has precedence: The constant in the lexical scope,
   # or the constant from the inheritance hierarchy?
+  # Answer
+  #   From StackOverflow:
+  #     Ruby searches for the constant definition in this order:
+  #       The enclosing scope
+  #       Any outer scopes (repeat until top level is reached)
+  #       Included modules
+  #       Superclass(es)
+  #       Object
+  #       Kernel
+  #     Refer this for more:
+  #     http://coderrr.wordpress.com/2008/03/11/constant-name-resolution-in-ruby/
 
   # ------------------------------------------------------------------
 
@@ -84,4 +95,6 @@ class AboutConstants < Neo::Koan
   # QUESTION: Now which has precedence: The constant in the lexical
   # scope, or the constant from the inheritance hierarchy?  Why is it
   # different than the previous answer?
+  # Answer:
+  #   Bird is declared in the scope of MyAnimals, which has a higher precedence when resolving constants. Oyster is in the MyAnimals namespace, but it is not declared in that scope.
 end

@@ -121,6 +121,8 @@ class AboutControlStatements < Neo::Koan
     end
     assert_equal [1, 3, 5, 7, 9], result
   end
+  # Note:
+  #   Jumps to next iteration of the most internal loop. Terminates execution of a block if called within a block (with yield or call returning nil).
 
   def test_for_statement
     array = ["fish", "and", "chips"]

@@ -57,6 +57,8 @@ class AboutMethods < Neo::Koan
     assert_equal [1, 2], method_with_defaults(1, 2)
   end
 
+  # Note:
+      # Takes the default value if no value is passed/provided
   # ------------------------------------------------------------------
 
   def method_with_var_args(*args)
@@ -70,6 +72,8 @@ class AboutMethods < Neo::Koan
     assert_equal [:one, :two], method_with_var_args(:one, :two)
   end
 
+  # Note:
+      # Above method takes variable number of arguments and returns them as an array
   # ------------------------------------------------------------------
 
   def method_with_explicit_return
@@ -125,6 +129,8 @@ class AboutMethods < Neo::Koan
     assert_match /private method/, exception.message
   end
 
+  # Note:
+  #   In a private method call, self is the implicit receiver. Calling self explicitly will result in an error.
   # ------------------------------------------------------------------
 
   class Dog
