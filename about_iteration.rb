@@ -90,11 +90,15 @@ class AboutIteration < Neo::Koan
     # Extra Credit:
     # Describe in your own words what inject does.
     # ANSWER:
-      # Inject basically executes a binary operation iteratively 
-      # on all the elements of an array together 
+      # Inject basically executes a binary operation iteratively
+      # on all the elements of an array together
       # to return a result
   end
 
+  # The map method always returns an array but can workon other collections
+  # as well. A key point here to remember is that Ruby will use the value
+  # from the last line as a return value, so that's a handy way to remember
+  # that seeing item + 10 will return that as a value within the result array.
   def test_all_iteration_methods_work_on_any_collection_not_just_arrays
     # Ranges act like a collection
     result = (1..3).map { |item| item + 10 }
@@ -122,5 +126,8 @@ class AboutIteration < Neo::Koan
   #   # code to read 'file'
   #
   # When you get to the "AboutSandwichCode" koan, recheck your answer.
+  # ANSWER:
+  # The first method iterates through the file one line at a time. The second method opens the contents of the entire file. Also from RubyDoc:
+  # With no associated block, File.open is a synonym for ::new. If the optional code block is given, it will be passed the opened file as an argument and the File object will automatically be closed when the block terminates. The value of the block will be returned from File.open.
 
 end
