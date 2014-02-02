@@ -31,6 +31,45 @@ require File.expand_path(File.dirname(__FILE__) + '/neo')
 
 def score(dice)
   # You need to write this method
+  # For every input array, check for
+    # occurence of 3 numbers
+    # 3 ones => 1000
+    # a one => 100
+    # a five => 50
+  # default 0
+  result = 0
+    counts = Hash.new(0)
+
+  dice.each do |number|
+    counts[number] += 1
+  end
+
+  counts.each do |item,numFound|
+    # 1,1,1 = 1000 points
+    if item == 1 && numFound >= 3 then
+      result += 1000
+      numFound -= 3
+    end
+
+    # any number other than 1, found 3 times is that number times
+    # 100.. so 5,5,5 = 500 points, 3,3,3 = 300 points, etc.
+    if item != 1 && numFound >= 3 then
+      result += item * 100
+      numFound -= 3
+    end
+
+    # 1 (not part of set) = 100 points for each found
+    if item == 1 && numFound <= 2 then
+      result += 100 * numFound
+    end
+
+    # 5 (not part of set) = 50 points for each found
+    if item == 5 && numFound <=2 then
+      result += 50 * numFound
+    end
+  end
+
+  result
 end
 
 class AboutScoringProject < Neo::Koan
