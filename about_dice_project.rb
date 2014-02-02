@@ -2,9 +2,30 @@ require File.expand_path(File.dirname(__FILE__) + '/neo')
 
 # Implement a DiceSet Class here:
 #
-# class DiceSet
-#   code ...
-# end
+class DiceSet
+  attr_accessor :values
+
+  def initialize
+    self.values ||= []
+  end
+
+  # roll(x) takes in the number of dice to be rolled,
+  # and assigns a random value (from 1 - 6) to each die.
+
+  def roll(number_of_dice)
+    @values = (1..number_of_dice).map { rand(6) + 1 }
+
+    # Discovered the above shorter and cleaner way on GitHub.
+    # number_of_dice.times.each do
+    #   self.values << 1 + rand(6)
+    # end
+    # self.values
+  end
+
+  # NOTE: An @ before a value is an instance variable.
+  # "values" is the instance variable, and an array when being computed upon
+  # by the roll method.
+end
 
 class AboutDiceProject < Neo::Koan
   def test_can_create_a_dice_set

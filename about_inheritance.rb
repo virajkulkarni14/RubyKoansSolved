@@ -38,9 +38,9 @@ class AboutInheritance < Neo::Koan
 
   def test_subclasses_add_new_behavior
     chico = Chihuahua.new("Chico")
-    assert_equal :wag, chico.wag
+    assert_equal :happy, chico.wag
 
-    assert_raise(___) do
+    assert_raise(NoMethodError) do
       fido = Dog.new("Fido")
       fido.wag
     end
@@ -75,9 +75,10 @@ class AboutInheritance < Neo::Koan
     end
   end
 
+  # Calling parent's method implementation unless we are in the same method results in error.
   def test_super_does_not_work_cross_method
     george = GreatDane.new("George")
-    assert_raise(___) do
+    assert_raise(NoMethodError) do
       george.growl
     end
   end
