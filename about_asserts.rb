@@ -33,7 +33,7 @@ class AboutAsserts < Neo::Koan
     assert_equal expected_value, actual_value
   end
 
-  # Sometimes we will ask you to fill in the values
+  # Sometimes we will ask you to fill in the values.
   def test_fill_in_values
     assert_equal 2, 1 + 1
   end
